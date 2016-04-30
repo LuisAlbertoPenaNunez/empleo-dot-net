@@ -70,7 +70,8 @@ namespace Empleado
 				SimpleIoc.Default.Register<IAppInfoService, AppInfoService>();
 				SimpleIoc.Default.Register<ILanguageService, LanguageService>();
 				SimpleIoc.Default.Register<IContextService,ContextService>();
-				SimpleIoc.Default.Register<IJobsApiService, FakeJobsApiService>();
+				SimpleIoc.Default.Register<IProxy, HttpProxy>();
+				SimpleIoc.Default.Register<IJobsApiService, JobsApiService>();
 				SimpleIoc.Default.Register<IGithubContributorService, OctocatContributorService>();
 				SimpleIoc.Default.Register<IEmailService, EmailService> ();
 				SimpleIoc.Default.Register<IKeyboardService, KeyboardService>();
