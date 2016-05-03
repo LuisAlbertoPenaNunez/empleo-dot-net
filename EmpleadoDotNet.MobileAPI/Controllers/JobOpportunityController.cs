@@ -42,9 +42,9 @@ namespace EmpleadoDotNet.MobileAPI.Controllers
         }
 
         [Route("cardJobs/latest")]
-        public HttpResponseMessage Get()
+        public HttpResponseMessage Get(int quantity = 15)
         {
-            var jobs = _jobOpportunityRepository.GetLatestJobOpportunity(15);
+            var jobs = _jobOpportunityRepository.GetLatestJobOpportunity(quantity);
 
             return jobs == null ? Request.CreateResponse(HttpStatusCode.NotFound) :
                 Request.CreateResponse(HttpStatusCode.OK, jobs);
