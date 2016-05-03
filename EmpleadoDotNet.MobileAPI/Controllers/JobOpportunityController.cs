@@ -38,7 +38,16 @@ namespace EmpleadoDotNet.MobileAPI.Controllers
             var jobs = _jobOpportunityRepository.GetJobOpportunityById(specifiedId);
 
             return jobs == null ? Request.CreateResponse(HttpStatusCode.NotFound) :
-                Request.CreateResponse(HttpStatusCode.OK, "Hi");
+                Request.CreateResponse(HttpStatusCode.OK, jobs);
+        }
+
+        [Route("cardJobs/latest")]
+        public HttpResponseMessage Get()
+        {
+            var jobs = _jobOpportunityRepository.GetLatestJobOpportunity(15);
+
+            return jobs == null ? Request.CreateResponse(HttpStatusCode.NotFound) :
+                Request.CreateResponse(HttpStatusCode.OK, jobs);
         }
 
         private static int GetIdFromTitle(string title)
